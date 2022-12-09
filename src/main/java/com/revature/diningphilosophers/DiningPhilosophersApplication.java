@@ -1,4 +1,4 @@
-package com.revature.diningphilosophers;
+package main.java.com.revature.diningphilosophers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
