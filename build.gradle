@@ -9,6 +9,8 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 configurations {
+	compile.exclude module: 'spring-boot-starter-tomcat'
+	compile.exclude group: 'org.apache.tomcat'
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -20,7 +22,7 @@ repositories {
 }
 
 ext {
-	set('springCloudAzureVersion', "6.0.0-beta.3")
+//	set('springCloudAzureVersion', "6.0.0-beta.3")
 	set('springShellVersion', "3.0.0-M3")
 }
 
@@ -28,12 +30,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	implementation 'org.springframework.boot:spring-boot-starter-jersey'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-rsocket'
+//	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+//	implementation 'org.springframework.boot:spring-boot-starter-rsocket'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'com.azure.spring:spring-cloud-azure-starter-active-directory'
-	implementation 'com.azure.spring:spring-cloud-azure-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'com.azure.spring:spring-cloud-azure-starter-active-directory'
+//	implementation 'com.azure.spring:spring-cloud-azure-starter-actuator'
 	implementation 'org.springframework.shell:spring-shell-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
@@ -41,13 +45,15 @@ dependencies {
 	runtimeOnly 'org.postgresql:r2dbc-postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'io.projectreactor:reactor-test'
 }
 
 dependencyManagement {
 	imports {
-		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureVersion}"
+//		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureVersion}"
 		mavenBom "org.springframework.shell:spring-shell-dependencies:${springShellVersion}"
 	}
 }
