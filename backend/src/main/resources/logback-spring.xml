@@ -10,12 +10,12 @@
 <!--        <appender-ref ref="STDOUT" />-->
 <!--    </root>-->
 	<springProfile name="dev,staging">
-        <logger name="STDOUT" level="DEBUG" additivity="false">
+        <logger name="com.revature" level="DEBUG" additivity="false">
             <appender-ref ref="CONSOLE" />
         </logger>>
     </springProfile>
     <springProfile name="production">
-        <logger name="STDOUT" level="WARN" additivity="false">
+        <logger name="com.revature" level="WARN" additivity="false">
             <appender-ref ref="FILE" />
         </logger>
     </springProfile>
