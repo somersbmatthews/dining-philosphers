@@ -25,7 +25,17 @@ ext {
 //	set('springCloudAzureVersion', "6.0.0-beta.3")
 	set('springShellVersion', "3.0.0-M3")
 }
-
+springProfile = development
+//tasks.register("bootRunDev") {
+    //group = "application"
+  //  description = "Runs the Spring Boot application with the dev profile"
+    //doFirst {
+      //  tasks.bootRun.configure {
+        //    systemProperty("spring.profiles.active", "dev")
+        //}
+    //}
+    //finalizedBy("bootRun")
+//}
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
