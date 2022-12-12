@@ -26,7 +26,7 @@ ext {
 //	set('springCloudAzureVersion', "6.0.0-beta.3")
 	set('springShellVersion', "3.0.0-M3")
 }
-springProfile = development
+//springProfile = development
 //tasks.register("bootRunDev") {
     //group = "application"
   //  description = "Runs the Spring Boot application with the dev profile"
@@ -67,6 +67,12 @@ dependencyManagement {
 //		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureVersion}"
 		mavenBom "org.springframework.shell:spring-shell-dependencies:${springShellVersion}"
 	}
+}
+
+def activeProfile = 'dev'
+bootRun {
+	main = 'com.revature.diningphilosophers'
+	systemProperty "spring.profiles.active", activeProfile
 }
 
 tasks.named('test') {

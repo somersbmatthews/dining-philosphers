@@ -6,17 +6,26 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-<!--    <root level="info">-->
-<!--        <appender-ref ref="STDOUT" />-->
-<!--    </root>-->
-	<springProfile name="dev,staging">
-        <logger name="com.revature" level="DEBUG" additivity="false">
-            <appender-ref ref="CONSOLE" />
-        </logger>>
-    </springProfile>
-    <springProfile name="production">
-        <logger name="com.revature" level="WARN" additivity="false">
-            <appender-ref ref="FILE" />
-        </logger>
-    </springProfile>
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+
+<!--    <springProfile name="local">-->
+<!--        <root level="WARN">-->
+<!--            <appender-ref ref="STDOUT"/>-->
+<!--        </root>-->
+<!--&lt;!&ndash;        <logger name="com.revature.diningphilosophers" level="DEBUG"/>&ndash;&gt;-->
+<!--    </springProfile>-->
+
+<!--	<springProfile name="dev | staging">-->
+<!--        <logger name="com.revature.diningphilosophers" level="DEBUG" >-->
+<!--            <appender-ref ref="STDOUT" />-->
+<!--        </logger>>-->
+<!--    </springProfile>-->
+<!--    <springProfile name="production">-->
+<!--        <logger name="com.revature.diningphilosophers" level="WARN" >-->
+<!--            <appender-ref ref="FILE" />-->
+<!--        </logger>-->
+<!--    </springProfile>-->
 </configuration>
