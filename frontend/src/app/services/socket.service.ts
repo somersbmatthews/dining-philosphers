@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { QueueingSubject } from 'queueing-subject';
+import { webSocket } from 'rxjs/webSocket';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { QueueingSubject } from 'queueing-subject';
 
 export class SocketService {
 // this subject queues as necessary to ensure every message is delivered
-input$ = new QueueingSubject<string>()
+
 
 
   constructor() { }
