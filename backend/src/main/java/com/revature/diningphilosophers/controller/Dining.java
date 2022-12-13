@@ -1,10 +1,6 @@
 package com.revature.diningphilosophers.controller;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Component;
 
 
@@ -17,11 +13,15 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/")
 public class Dining {
 
-//    @GET
-//    @Path("/dining")
-//    @Produces(MediaType.APPLICATION_JSON)
+
     @GetMapping("/dining")
+    @Produces(MediaType.APPLICATION_JSON)
     public Mono<String> getHelloWorld() {
         return Mono.just("Hello, world!");
     }
+
+    @MessageMapping("/socket")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Con
+    public
 }
