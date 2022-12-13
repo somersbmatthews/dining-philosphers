@@ -1,5 +1,10 @@
 <ko-stage [config]="configStage">
   <ko-layer>
+    <ko-circle [config]="configCenterCircle" (click)="handleClick($event)"></ko-circle>
     <ko-circle [config]="configCircle" (click)="handleClick($event)"></ko-circle>
+    <ko-circle [config]="configCircle2" (click)="handleClick($event)"></ko-circle>
+    <ko-circle [config]="configCircle3" (click)="handleClick($event)"></ko-circle>
+    <ko-circle [config]="configCircle4" (click)="handleClick($event)"></ko-circle>
+    <ko-circle [config]="configCircle5" (click)="handleClick($event)"></ko-circle>
   </ko-layer>
 </ko-stage>
