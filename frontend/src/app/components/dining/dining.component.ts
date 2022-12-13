@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Stage, stages } from 'konva/lib/Stage';
 import { KonvaComponent } from 'ng2-konva';
 import { Observable, of } from 'rxjs';
+import { DiningStage } from 'src/app/constants/stage';
 
 
 @Component({
@@ -10,9 +11,19 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./dining.component.scss']
 })
 export class DiningComponent implements OnInit {
-   @ViewChild('stage') konvaObject: KonvaComponent | undefined;
-   stage: any 
-   
+  height = window.innerHeight
+  width = window.innerWidth
+  stage: DiningStage = {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }
+  position = {
+    centerCirclePosition:
+
+  }
+  //  @ViewChild('stage') konvaObject: KonvaComponent | undefined;
+
+
   // @ViewChild('layer') layer: KonvaComponent;
   // @ViewChild('dragLayer') dragLayer: KonvaComponent;
   // var stage = new Konva.Stage({
@@ -21,20 +32,19 @@ export class DiningComponent implements OnInit {
   //   width: sceneWidth,
   //   height: sceneHeight,
   // });
-  public configStage: Observable<any> = of({
-    width: window.innerWidth,
-    height: window.innerHeight
+  public stageConfig: Observable<any> = of({
+    width: this.width,
+    height: this.height
   });
 
-  public configCenterCircle: Observable<any>=new Observable<any>;
-  //  = of({
-  //   x: this.stage.width,
-  //   y: 325,
-  //   radius: 70,
-  //   fill: 'blue',
-  //   stroke: 'black',
-  //   strokeWidth: 4
-  // });
+  public configCenterCircle: Observable<any> = of({
+    x: this.stage.width / 3,
+    y: 325,
+    radius: 70,
+    fill: 'blue',
+    stroke: 'black',
+    strokeWidth: 4
+  });
   public configCircle: Observable<any> = of({
     x: 150,
     y: 150,
@@ -76,21 +86,12 @@ export class DiningComponent implements OnInit {
     strokeWidth: 4
   });
 
-  constructor() { 
-    this.stage = this.konvaObject?.getStage();
+  constructor() {
+
   }
 
   ngOnInit(): void {
-   // this.stage = this.konvaObject?.getStage();
-   this.configCenterCircle = of({
-    x: 150,
-    //x: this.stage?.width,
-    y: 325,
-    radius: 70,
-    fill: 'blue',
-    stroke: 'black',
-    strokeWidth: 4
-  });
+
   }
 
 
