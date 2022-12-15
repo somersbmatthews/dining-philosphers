@@ -21,9 +21,9 @@ public class DiningSimulation {
                 // sleep 1 sec
                 Thread.sleep(1000);
 
-//                for(int i = 0; i < numOfPhilosophers; i++) {
-//                    System.out.println(" The state of philosopher " + i + " is: " + philosophers[i].getState().toString());
-//                }
+                for(int i = 0; i < numOfPhilosophers; i++) {
+                    System.out.println(" The state of philosopher " + i + " is: " + philosophers[i].getState().toString());
+                }
                 // check for deadlock
                 boolean deadlock = true;
                 for (Chopstick f : chopsticks) {
