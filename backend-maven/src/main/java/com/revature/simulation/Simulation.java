@@ -55,6 +55,7 @@ public class Simulation {
                 }
                 if(deadLockedThreads == 5) {
                     System.out.println("All threads are waiting, circular wait condition, DEADLOCK!");
+                    System.out.println("All philosophers have starved to death.");
                     break;
                 }
                 if(simulationRuns == 0){
