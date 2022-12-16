@@ -4,18 +4,21 @@ import com.revature.Enum.PhilosopherState;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class DijkstraPhilosopher extends PhilosopherBase {
+public class OrderedPhilosopher extends PhilosopherBase {
 
-    public DijkstraPhilosopher(int num, ChopstickBase left, ChopstickBase right) {
+    public OrderedPhilosopher(int num, ChopstickBase left, ChopstickBase right) {
         super(num, left, right);
     }
 
     @Override
     public void run(){
         while (true) {
-            // the only different part of the dijkstra's solution is these two lines
-            int thinkingTime = ThreadLocalRandom.current().nextInt(0, 3000);
-            think(thinkingTime);
+            // the only different part of the ordered solution is these two lines
+            try {
+                Thread.sleep(1000 * number);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             state = PhilosopherState.HUNGRY;
             leftchopstick.grab();
             System.out.println("philosopher " + (number+1) + " grabs left chopstick.");

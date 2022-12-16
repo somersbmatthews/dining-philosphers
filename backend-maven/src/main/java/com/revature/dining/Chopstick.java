@@ -15,12 +15,6 @@ public class Chopstick extends ChopstickBase{
             e.printStackTrace(System.out);
         }
     }
-
-    @Override
-    public boolean tryGrab() {
-        return mutex.tryAcquire();
-    }
-
     @Override
     public void release() {
         mutex.release();

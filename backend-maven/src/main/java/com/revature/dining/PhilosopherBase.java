@@ -23,7 +23,8 @@ public class PhilosopherBase extends Thread {
             state = PhilosopherState.EATING;
 
             int eatingTime = ThreadLocalRandom.current().nextInt(0, ceilingEatingTime);
-            System.out.println("philosopher " + (number+1) + " eats for " + eatingTime/1000 + " seconds.");
+            float eatingTimeInSeconds = (float) eatingTime / 1000f;
+            System.out.println("philosopher " + (number+1) + " eats for " + eatingTimeInSeconds + " seconds.");
             Thread.sleep(eatingTime);
             state = PhilosopherState.THINKING;
 

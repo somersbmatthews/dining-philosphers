@@ -43,7 +43,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/somersbmatthews/projects/backend-maven/src/main/java/com/revature/dining",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -93,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671133597982</updated>
       <workItem from="1671133599367" duration="1397000" />
-      <workItem from="1671135167336" duration="13832000" />
+      <workItem from="1671135167336" duration="17202000" />
     </task>
     <servers />
   </component>

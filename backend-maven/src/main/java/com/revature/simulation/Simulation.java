@@ -1,10 +1,7 @@
 package com.revature.simulation;
 
 import com.revature.Enum.SimulationType;
-import com.revature.dining.Chopstick;
-import com.revature.dining.DijkstraPhilosopher;
-import com.revature.dining.Philosopher;
-import com.revature.dining.PhilosopherBase;
+import com.revature.dining.*;
 
 public class Simulation {
     static int simulationRuns = 10;
@@ -26,6 +23,12 @@ public class Simulation {
                 philosophers         = new DijkstraPhilosopher[numOfPhilosophers];
                 for (int i = 0; i < numOfPhilosophers; i++) {
                     philosophers[i] = new DijkstraPhilosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
+                }
+                break;
+            case ORDERED:
+                philosophers = new OrderedPhilosopher[numOfPhilosophers];
+                for (int i = 0; i < numOfPhilosophers; i++) {
+                    philosophers[i] = new OrderedPhilosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
                 }
                 break;
         }

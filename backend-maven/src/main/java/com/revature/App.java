@@ -14,12 +14,18 @@ public class App
         switch(args[0]) {
             case "deadlock":
                 Simulation circularWaitSimulation = new Simulation(SimulationType.DEADLOCKED);
+
                 circularWaitSimulation.runSimulation();
                 break;
             case "solution":
                 Simulation deadlockSimulation = new Simulation(SimulationType.SOLUTION);
 
                 deadlockSimulation.runSimulation();
+                break;
+            case "ordered":
+                Simulation orderedSolution = new Simulation(SimulationType.ORDERED);
+
+                orderedSolution.runSimulation();
                 break;
             default:
                 System.out.println("simulation type required");
