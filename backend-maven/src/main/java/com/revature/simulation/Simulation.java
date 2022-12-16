@@ -31,6 +31,12 @@ public class Simulation {
                     philosophers[i] = new OrderedPhilosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
                 }
                 break;
+            case LIVELOCK:
+                philosophers = new LivelockedPhilosopher[numOfPhilosophers];
+                for (int i = 0; i < numOfPhilosophers; i++) {
+                    philosophers[i] = new LivelockedPhilosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
+                }
+                break;
         }
     }
 

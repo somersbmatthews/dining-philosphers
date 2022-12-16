@@ -10,5 +10,7 @@ abstract class ChopstickBase {
 
     abstract void release();
 
+    abstract boolean tryGrab();
+
     abstract boolean isFree();
 }

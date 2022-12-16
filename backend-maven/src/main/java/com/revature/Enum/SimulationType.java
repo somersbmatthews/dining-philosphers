@@ -4,5 +4,6 @@ public enum SimulationType {
     DEADLOCKED,
     SOLUTION,
 
-    ORDERED
+    ORDERED,
+    LIVELOCK
 }

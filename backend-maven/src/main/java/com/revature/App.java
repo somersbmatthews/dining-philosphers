@@ -27,6 +27,11 @@ public class App
 
                 orderedSolution.runSimulation();
                 break;
+            case "livelock":
+                Simulation livelockSimulation = new Simulation(SimulationType.LIVELOCK);
+
+               livelockSimulation.runSimulation();
+                break;
             default:
                 System.out.println("simulation type required");
                 break;
