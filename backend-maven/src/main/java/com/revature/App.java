@@ -1,6 +1,7 @@
 package com.revature;
 
-import com.revature.dining.DiningSimulation;
+import com.revature.Enum.SimulationType;
+import com.revature.simulation.Simulation;
 
 /**
  * Hello world!
@@ -10,9 +11,19 @@ public class App
 {
     public static void main( String[] args )
     {
-        DiningSimulation simulation = new DiningSimulation();
+        switch(args[0]) {
+            case "deadlock":
+                Simulation circularWaitSimulation = new Simulation(SimulationType.DEADLOCKED);
+                circularWaitSimulation.runSimulation();
+                break;
+            case "solution":
+                Simulation deadlockSimulation = new Simulation(SimulationType.SOLUTION);
 
-        simulation.runSimulation();
-
+                deadlockSimulation.runSimulation();
+                break;
+            default:
+                System.out.println("simulation type required");
+                break;
+        }
     }
 }
