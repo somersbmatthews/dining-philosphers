@@ -16,17 +16,12 @@ public class Philosopher extends PhilosopherBase {
         while (true) {
 
             state = PhilosopherState.HUNGRY;
-
+            // grabs the left one, succeeds
             leftchopstick.grab();
             System.out.println("philosopher " + (number+1) + " grabs left chopstick.");
-
+            // grabs the right one, fails and waits forever until it is available, deadlock, circular wait condition
             rightchopstick.grab();
             System.out.println("philosopher " + (number+1) + " grabs right chopstick.");
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             eat();
             leftchopstick.release();
             System.out.println("philosopher " + (number+1) + " releases left chopstick.");

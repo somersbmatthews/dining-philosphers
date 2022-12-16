@@ -15,7 +15,7 @@ public class OrderedPhilosopher extends PhilosopherBase {
         while (true) {
             // the only different part of the ordered solution is these two lines
             try {
-                Thread.sleep(1000 * number);
+                Thread.sleep(1000 * number); // starts in order of number id
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

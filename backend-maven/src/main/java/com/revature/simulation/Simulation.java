@@ -46,11 +46,16 @@ public class Simulation {
         for (int i = 0; i < numOfPhilosophers; i++) {
             philosophers[i].start();
         }
+        try {
+            Thread.sleep(3000);
+        } catch(InterruptedException e) {
+            throw new RuntimeException(e);
+        }
        threadMonitor();
     }
 
     private void threadMonitor() {
-        while (true) {
+
             try {
                 // sleep 1 sec
                 Thread.sleep(300);
@@ -65,10 +70,10 @@ public class Simulation {
                 if(deadLockedThreads == 5) {
                     System.out.println("All threads are waiting, circular wait condition, DEADLOCK!");
                     System.out.println("All philosophers have starved to death.");
-                    break;
+//                    break;
                 }
                 if(simulationRuns == 0){
-                    break;
+//                    break;
                 } else {
                     simulationRuns--;
                 }
@@ -76,6 +81,6 @@ public class Simulation {
             } catch (Exception e) {
                 e.printStackTrace(System.out);
             }
-        }
+
     }
 }
