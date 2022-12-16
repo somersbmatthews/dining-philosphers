@@ -62,7 +62,7 @@ public class Simulation {
                 int deadLockedThreads = 0;
                 for(int i = 0; i < numOfPhilosophers; i++) {
                     Thread.State threadState = philosophers[i].getState();
-                    System.out.println(" The state of philosopher " + i + " is: " + threadState);
+                    System.out.println(" The state of philosopher " + (i+1) + " is: " + threadState);
                     if(threadState ==Thread.State.WAITING ) {
                         deadLockedThreads++;
                     }
