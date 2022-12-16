@@ -32,7 +32,7 @@ public class LivelockedPhilosopher extends PhilosopherBase {
                     System.out.println("right chopstick cannot be grabbed.");
                    leftchopstick.release();
                 }
-
+                System.out.println("The thread for philosopher " + number + " is: " + getState());
 
         }
             System.out.println("we got here");
