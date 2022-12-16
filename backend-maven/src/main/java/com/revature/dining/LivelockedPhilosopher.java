@@ -18,7 +18,7 @@ public class LivelockedPhilosopher extends PhilosopherBase {
             // if philosopher has both chopsticks, exit loop and continue
             while((rightChopstickGrabbed == true && leftChopstickGrabbed == true) == false) {
                 // try to grab right chopstick, which at first succeeds
-                rightchopstick.tryGrab();
+                rightChopstickGrabbed = rightchopstick.tryGrab();
                 // try to grab left chopstick, will fail
                 System.out.println("philosopher " + (number+1) + " tries to grab left chopstick.");
                 leftChopstickGrabbed = leftchopstick.tryGrab();
@@ -28,7 +28,7 @@ public class LivelockedPhilosopher extends PhilosopherBase {
                     rightchopstick.release();
                 }
                 // tries to grab left chopstick, which succeeds
-                leftchopstick.tryGrab();
+                leftChopstickGrabbed = leftchopstick.tryGrab();
                 // tries to grab right chopstick, which fails
                 System.out.println("philosopher " + (number+1) + " tries to grab right chopstick.");
                 rightChopstickGrabbed = rightchopstick.tryGrab();
