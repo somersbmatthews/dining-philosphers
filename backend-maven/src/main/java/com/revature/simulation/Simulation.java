@@ -1,43 +1,50 @@
 package com.revature.simulation;
 
 import com.revature.Enum.SimulationType;
-import com.revature.dining.ChopstickWithMutex;
+import com.revature.dining.Chopstick;
 import com.revature.dining.DijkstraPhilosopher;
 import com.revature.dining.Philosopher;
 import com.revature.dining.PhilosopherBase;
-import sun.reflect.annotation.EnumConstantNotPresentExceptionProxy;
 
 public class Simulation {
-    int numOfPhilosophers = 5;
+    static int simulationRuns = 10;
+    static final int numOfPhilosophers = 5;
     private PhilosopherBase philosophers[];
-    private ChopstickWithMutex chopstickWithMutexes[];
+    private Chopstick chopsticks[] = new Chopstick[numOfPhilosophers];;
     public Simulation(SimulationType simulationType) {
+        for(int i = 0; i < numOfPhilosophers; i++) {
+            chopsticks[i] = new Chopstick();
+        }
         switch(simulationType) {
             case DEADLOCKED:
                 philosophers         = new Philosopher[numOfPhilosophers];
-                chopstickWithMutexes = new ChopstickWithMutex[numOfPhilosophers];
+                for (int i = 0; i < numOfPhilosophers; i++) {
+                    philosophers[i] = new Philosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
+                }
                 break;
             case SOLUTION:
                 philosophers         = new DijkstraPhilosopher[numOfPhilosophers];
-                chopstickWithMutexes = new ChopstickWithMutex[numOfPhilosophers];
+                for (int i = 0; i < numOfPhilosophers; i++) {
+                    philosophers[i] = new DijkstraPhilosopher(i, chopsticks[i], chopsticks[(i + 1) % numOfPhilosophers]);
+                }
+                break;
         }
     }
 
     public void runSimulation() {
-        for (int i = 0; i < numOfPhilosophers; i++) {
-            chopstickWithMutexes[i] = new ChopstickWithMutex();
-        }
+
 
         for (int i = 0; i < numOfPhilosophers; i++) {
-            philosophers[i] = new Philosopher(i, chopstickWithMutexes[i], chopstickWithMutexes[(i + 1) % numOfPhilosophers]);
             philosophers[i].start();
-
         }
-        int simulationRuns = 10;
+       threadMonitor();
+    }
+
+    private void threadMonitor() {
         while (true) {
             try {
                 // sleep 1 sec
-                Thread.sleep(1000);
+                Thread.sleep(300);
                 int deadLockedThreads = 0;
                 for(int i = 0; i < numOfPhilosophers; i++) {
                     Thread.State threadState = philosophers[i].getState();
@@ -59,8 +66,6 @@ public class Simulation {
             } catch (Exception e) {
                 e.printStackTrace(System.out);
             }
-
         }
-//        System.exit(0);
     }
 }

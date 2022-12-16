@@ -2,6 +2,8 @@ package com.revature.dining;
 
 import com.revature.Enum.PhilosopherState;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class DijkstraPhilosopher extends PhilosopherBase {
 
     public DijkstraPhilosopher(int num, ChopstickBase left, ChopstickBase right) {
@@ -11,6 +13,8 @@ public class DijkstraPhilosopher extends PhilosopherBase {
     @Override
     public void run(){
         while (true) {
+            int thinkingTime = ThreadLocalRandom.current().nextInt(0, 3000);
+            think(thinkingTime);
             state = PhilosopherState.HUNGRY;
             boolean leftChopstickGrabbed = false;
             boolean rightChopstickGrabbed = false;

@@ -16,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671133597982</updated>
       <workItem from="1671133599367" duration="1397000" />
-      <workItem from="1671135167336" duration="10922000" />
+      <workItem from="1671135167336" duration="13395000" />
     </task>
     <servers />
   </component>

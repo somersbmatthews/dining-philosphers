@@ -2,7 +2,7 @@ package com.revature.dining;
 
 import java.util.concurrent.Semaphore;
 
-public class ChopstickWithMutex extends ChopstickBase{
+public class Chopstick extends ChopstickBase{
 
    private Semaphore mutex = new Semaphore(1);
 

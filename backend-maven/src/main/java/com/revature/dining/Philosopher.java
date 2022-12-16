@@ -14,6 +14,7 @@ public class Philosopher extends PhilosopherBase {
     @Override
     public void run(){
         while (true) {
+
             state = PhilosopherState.HUNGRY;
 
             leftchopstick.grab();
@@ -33,6 +34,7 @@ public class Philosopher extends PhilosopherBase {
             System.out.println("philosopher " + (number+1) + " releases right chopstick.");
         }
     }
+
 
 
 

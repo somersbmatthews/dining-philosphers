@@ -6,11 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PhilosopherBase extends Thread {
     static final int ceilingEatingTime = 4000;
-    public int number;
+    protected int number;
 
     PhilosopherState state = PhilosopherState.THINKING;
-    public ChopstickBase leftchopstick;
-    public ChopstickBase rightchopstick;
+    protected ChopstickBase leftchopstick;
+    protected ChopstickBase rightchopstick;
 
     public PhilosopherBase(int num, ChopstickBase left, ChopstickBase right) {
         number = num;
@@ -18,7 +18,7 @@ public class PhilosopherBase extends Thread {
         rightchopstick = right;
     }
 
-    void eat() {
+    protected void eat() {
         try {
             state = PhilosopherState.EATING;
 
@@ -28,8 +28,17 @@ public class PhilosopherBase extends Thread {
             state = PhilosopherState.THINKING;
 
         }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
+        catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected void think(int thinkingDuration) {
+        try {
+
+            Thread.sleep(thinkingDuration);
+        } catch(InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
